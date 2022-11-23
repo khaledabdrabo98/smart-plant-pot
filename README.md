@@ -22,7 +22,7 @@ Les informations des plantes seront récupérées sur une API. La plante sujet s
 - 2 Résistances (220)
 - 4 Résistances (330)
 - 1 Résistance (1M)
-- 1 Haut parleur
+~~- 1 Haut parleur~~ 
 - 1 Ecran LCD
 - 10 cables
 - 1 potentiomètre
