@@ -19,7 +19,8 @@ Les informations des plantes seront récupérées sur une API. La plante sujet s
 - Actionneur : Haut-parleur (potentiellement)
 
 ## Matériel
-- 5 Résistances (220)
+- 4 Résistances (220)
+- 2 Résistances (330)
 - 1 Résistance (1M)
 - 1 Haut parleur
 - 1 Ecran LCD
