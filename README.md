@@ -31,4 +31,9 @@ Les informations des plantes seront récupérées sur une API. La plante sujet s
 - BRIGNONE JEAN p1709655 
 - Khaled ABDRABO p1713323
 
+
+Tuto cablage capteur eau
 https://create.arduino.cc/projecthub/MansonHau/automatic-watering-system-c40bdf
+
+Tuto cablage pour haut parleur
+https://create.arduino.cc/projecthub/LithiumION/arduino-based-text-to-speech-convertor-f4316a
