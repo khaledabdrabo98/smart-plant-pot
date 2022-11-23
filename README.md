@@ -9,11 +9,16 @@ Conenxion à une API décrivant les besoins en eau de chaque plante et donc de l
 - Ajout d'un capteur de lumière : Comparaison avec les données de l'API
 - Ajout d'un capteur de tension ; Toucher de la plante permet de récupérer les infos de la terre(rempalcerait l'écran, remplacé par haut parleur ?)
 
+##Intelligence
+Les informations des plantes seront récupérées sur une API. La plante sujet sera sélectionnée à la main. La quantité d'eau nécessaire au bien être de la plante sujet sera utilisé comme seuil pour notre arduino qui informera l'utilisateur que la quantité d'eau dans la terre dépasse, ou non, le seuil.
+
 ## Capteurs / actionneurs dont on aura besoin
-- Niveau d'eau (graphite)
-- Luxmètre (potentiellement)
-- Ecran
-- Haut-parleur (potentiellement)
+- Capteur : Niveau d'eau (graphite)
+- Capteur : Luxmètre (potentiellement)
+- Actionneur : Ecran
+- Actionneur : Haut-parleur (potentiellement)
+
+## Matériel
 - 1 résistance (potentiellement)
 
 
@@ -21,3 +26,5 @@ Conenxion à une API décrivant les besoins en eau de chaque plante et donc de l
 - Thibault Hervier p1807341
 - BRIGNONE JEAN p1709655 
 - Khaled ABDRABO p1713323
+
+https://create.arduino.cc/projecthub/MansonHau/automatic-watering-system-c40bdf
