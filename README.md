@@ -19,8 +19,12 @@ Les informations des plantes seront récupérées sur une API. La plante sujet s
 - Actionneur : Haut-parleur (potentiellement)
 
 ## Matériel
-- 1 résistance (potentiellement)
-
+- 5 Résistances (220)
+- 1 Résistance (1M)
+- 1 Haut parleur
+- 1 Ecran LCD
+- 10 cables
+- 1 tensiomètre
 
 ## Membres : 
 - Thibault Hervier p1807341
