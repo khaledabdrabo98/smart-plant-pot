@@ -16,13 +16,13 @@ Les informations des plantes seront récupérées sur une API. La plante sujet s
 - Capteur : Niveau d'eau (graphite)
 - Capteur : Luxmètre (potentiellement)
 - Actionneur : Ecran
-- Actionneur : Haut-parleur (potentiellement)
+- Actionneur : ~~Haut-parleur~~ téléphone (potentiellement)
 
 ## Matériel
 - 2 Résistances (220)
 - 4 Résistances (330)
 - 1 Résistance (1M)
-~~- 1 Haut parleur~~ 
+- 1 ~~ Haut parleur~~ téléphone
 - 1 Ecran LCD
 - 10 cables
 - 1 potentiomètre
