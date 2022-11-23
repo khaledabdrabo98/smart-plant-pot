@@ -25,7 +25,7 @@ Les informations des plantes seront récupérées sur une API. La plante sujet s
 - 1 Haut parleur
 - 1 Ecran LCD
 - 10 cables
-- 1 tensiomètre
+- 1 potentiomètre
 
 ## Membres : 
 - Thibault Hervier p1807341
