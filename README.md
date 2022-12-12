@@ -10,7 +10,12 @@ Conenxion à une API décrivant les besoins en eau de chaque plante et donc de l
 - Ajout d'un capteur de tension ; Toucher de la plante permet de récupérer les infos de la terre(rempalcerait l'écran, remplacé par haut parleur ?)
 
 ##Intelligence
-Les informations des plantes seront récupérées sur une API. La plante sujet sera sélectionnée à la main. La quantité d'eau nécessaire au bien être de la plante sujet sera utilisé comme seuil pour notre arduino qui informera l'utilisateur que la quantité d'eau dans la terre dépasse, ou non, le seuil.
+Les noms scientifiques des plantes seront récupérées sur une API, et leurs informations (besoin en humidité, lumière, etc..)  sur une autre. La plante sujet sera identifiée grâce à une photo, et à un algorithme de Machine Learning qui tourne sur la 1ère API. La quantité d'eau nécessaire au bien être de la plante sujet sera utilisé comme seuil pour notre arduino qui informera l'utilisateur que la quantité d'eau dans la terre dépasse, ou non, le seuil.
+
+### API utilisées : 
+- Identification de la plante en en prenant une photo, envoyée sur l'[API] de détection (https://plant.id/)
+- Récupération des détails des besoins de la plante identifiée sur la deuxième [API] (https://open.plantbook.io/)
+
 
 ## Capteurs / actionneurs dont on aura besoin
 - Capteur : Niveau d'eau (graphite)
