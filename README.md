@@ -14,8 +14,10 @@ Conenxion à une API décrivant les besoins en eau de chaque plante et donc de l
 - Luxmètre (potentiellement)
 - Ecran
 - Haut-parleur (potentiellement)
-- 1 résistance (potentiellement)
-
+- 1 résistance (potentiellement) marron noir vert
+- Resistance 680 * 2 ( 3 rouge rouge marron)
+- Resistance 220 * 2 rouge rouge marron
+- 4 cables 
 
 ## Membres : 
 - Thibault Hervier p1807341
