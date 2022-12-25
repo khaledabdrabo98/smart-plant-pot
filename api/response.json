@@ -1,1 +1,166 @@
-{"message":[{"id":384560338,"plant_name":"Spathiphyllum","plant_details":{"common_names":["spath","peace lilies"],"url":"https://en.wikipedia.org/wiki/Spathiphyllum","name_authority":"Spathiphyllum Schott","wiki_description":{"value":"Spathiphyllum is a genus of about 47 species of monocotyledonous flowering plants in the family Araceae, native to tropical regions of the Americas and southeastern Asia. Certain species of Spathiphyllum are commonly known as spath or peace lilies.\nThey are evergreen herbaceous perennial plants with large leaves 12–65 cm long and 3–25 cm broad. The flowers are produced in a spadix, surrounded by a 10–30 cm long, white, yellowish, or greenish spathe. The plant does not need large amounts of light or water to survive.","citation":"https://en.wikipedia.org/wiki/Spathiphyllum","license_name":"CC BY-SA 3.0","license_url":"https://creativecommons.org/licenses/by-sa/3.0/"},"taxonomy":{"class":"Magnoliopsida","family":"Araceae","genus":"Spathiphyllum","kingdom":"Plantae","order":"Alismatales","phylum":"Magnoliophyta"},"synonyms":["Amomophyllum","Hydnostachyon","Leucochlamys","Massowia","Spathiphyllopsis"],"language":"en","scientific_name":"Spathiphyllum","structured_name":{"genus":"spathiphyllum"}},"probability":0.4819710158021041,"confirmed":false,"similar_images":[{"id":"765eb8ab7a55217282b3e74721c09738","similarity":0.3637296029919494,"url":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/765/eb8ab7a55217282b3e74721c09738.jpg","url_small":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/765/eb8ab7a55217282b3e74721c09738.small.jpg"},{"id":"29785bd5bc2cc08c2fe3303414bfeff7","similarity":0.33015835104195007,"url":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/297/85bd5bc2cc08c2fe3303414bfeff7.jpg","url_small":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/297/85bd5bc2cc08c2fe3303414bfeff7.small.jpg"}]},{"id":384560339,"plant_name":"Spathiphyllum wallisii","plant_details":{"common_names":["peace lily","white sails","spathe flower"],"url":"https://en.wikipedia.org/wiki/Spathiphyllum_wallisii","name_authority":"Spathiphyllum wallisii Regel","wiki_description":{"value":"Spathiphyllum wallisii, commonly known as peace lily, white sails, or spathe flower is a very popular indoor house plant of the family Araceae. The genus name means \"spathe-leaf\", and the specific epithet is named after Gustav Wallis, the German plant collector.","citation":"https://en.wikipedia.org/wiki/Spathiphyllum_wallisii","license_name":"CC BY-SA 3.0","license_url":"https://creativecommons.org/licenses/by-sa/3.0/"},"taxonomy":{"class":"Magnoliopsida","family":"Araceae","genus":"Spathiphyllum","kingdom":"Plantae","order":"Alismatales","phylum":"Magnoliophyta"},"synonyms":[],"language":"en","scientific_name":"Spathiphyllum wallisii","structured_name":{"genus":"spathiphyllum","species":"wallisii"}},"probability":0.44252603605824103,"confirmed":false,"similar_images":[{"id":"94fc4a70583af4f4e76db6a550603795","similarity":0.32893718597332877,"url":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/94f/c4a70583af4f4e76db6a550603795.jpg","url_small":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/94f/c4a70583af4f4e76db6a550603795.small.jpg"},{"id":"d5f56cd84fb48e0735dd471b9cee3dfc","similarity":0.3095901065522541,"url":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/d5f/56cd84fb48e0735dd471b9cee3dfc.jpg","url_small":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/d5f/56cd84fb48e0735dd471b9cee3dfc.small.jpg"}]},{"id":384560340,"plant_name":"Zantedeschia aethiopica","plant_details":{"common_names":["Arum lily","calla lily"],"url":"https://en.wikipedia.org/wiki/Zantedeschia_aethiopica","name_authority":"Zantedeschia aethiopica (L.) Spreng.","wiki_description":{"value":"Zantedeschia aethiopica, commonly known as calla lily and arum lily, is a species in the family Araceae, native to southern Africa in Lesotho, South Africa, and Swaziland.","citation":"https://en.wikipedia.org/wiki/Zantedeschia_aethiopica","license_name":"CC BY-SA 3.0","license_url":"https://creativecommons.org/licenses/by-sa/3.0/"},"taxonomy":{"class":"Magnoliopsida","family":"Araceae","genus":"Zantedeschia","kingdom":"Plantae","order":"Alismatales","phylum":"Magnoliophyta"},"synonyms":["Arodes aethiopicum","Calla aethiopica","Calla ambigua","Calla moschata","Colocasia aethiopica","Pseudohomalomena pastoensis","Richardia aethiopica","Richardia africana"],"language":"en","scientific_name":"Zantedeschia aethiopica","structured_name":{"genus":"zantedeschia","species":"aethiopica"}},"probability":0.02487328591212883,"confirmed":false,"similar_images":[{"id":"f0c04d25b6542f455d52b6e45a1db291","similarity":0.23695774337031306,"url":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/f0c/04d25b6542f455d52b6e45a1db291.jpg","url_small":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/f0c/04d25b6542f455d52b6e45a1db291.small.jpg"},{"id":"9fda3217a9b56947933102a102d0da3f","similarity":0.19925282508924524,"url":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/9fd/a3217a9b56947933102a102d0da3f.jpg","url_small":"https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/9fd/a3217a9b56947933102a102d0da3f.small.jpg"}]}]}
+{
+    "message": [
+        {
+            "id": 384560338,
+            "plant_name": "Spathiphyllum",
+            "plant_details": {
+                "common_names": [
+                    "spath",
+                    "peace lilies"
+                ],
+                "url": "https://en.wikipedia.org/wiki/Spathiphyllum",
+                "name_authority": "Spathiphyllum Schott",
+                "wiki_description": {
+                    "value": "Spathiphyllum is a genus of about 47 species of monocotyledonous flowering plants in the family Araceae, native to tropical regions of the Americas and southeastern Asia. Certain species of Spathiphyllum are commonly known as spath or peace lilies.\nThey are evergreen herbaceous perennial plants with large leaves 12–65 cm long and 3–25 cm broad. The flowers are produced in a spadix, surrounded by a 10–30 cm long, white, yellowish, or greenish spathe. The plant does not need large amounts of light or water to survive.",
+                    "citation": "https://en.wikipedia.org/wiki/Spathiphyllum",
+                    "license_name": "CC BY-SA 3.0",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+                },
+                "taxonomy": {
+                    "class": "Magnoliopsida",
+                    "family": "Araceae",
+                    "genus": "Spathiphyllum",
+                    "kingdom": "Plantae",
+                    "order": "Alismatales",
+                    "phylum": "Magnoliophyta"
+                },
+                "synonyms": [
+                    "Amomophyllum",
+                    "Hydnostachyon",
+                    "Leucochlamys",
+                    "Massowia",
+                    "Spathiphyllopsis"
+                ],
+                "language": "en",
+                "scientific_name": "Spathiphyllum",
+                "structured_name": {
+                    "genus": "spathiphyllum"
+                }
+            },
+            "probability": 0.4819710158021041,
+            "confirmed": false,
+            "similar_images": [
+                {
+                    "id": "765eb8ab7a55217282b3e74721c09738",
+                    "similarity": 0.3637296029919494,
+                    "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/765/eb8ab7a55217282b3e74721c09738.jpg",
+                    "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/765/eb8ab7a55217282b3e74721c09738.small.jpg"
+                },
+                {
+                    "id": "29785bd5bc2cc08c2fe3303414bfeff7",
+                    "similarity": 0.33015835104195007,
+                    "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/297/85bd5bc2cc08c2fe3303414bfeff7.jpg",
+                    "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/297/85bd5bc2cc08c2fe3303414bfeff7.small.jpg"
+                }
+            ]
+        },
+        {
+            "id": 384560339,
+            "plant_name": "Spathiphyllum wallisii",
+            "plant_details": {
+                "common_names": [
+                    "peace lily",
+                    "white sails",
+                    "spathe flower"
+                ],
+                "url": "https://en.wikipedia.org/wiki/Spathiphyllum_wallisii",
+                "name_authority": "Spathiphyllum wallisii Regel",
+                "wiki_description": {
+                    "value": "Spathiphyllum wallisii, commonly known as peace lily, white sails, or spathe flower is a very popular indoor house plant of the family Araceae. The genus name means \"spathe-leaf\", and the specific epithet is named after Gustav Wallis, the German plant collector.",
+                    "citation": "https://en.wikipedia.org/wiki/Spathiphyllum_wallisii",
+                    "license_name": "CC BY-SA 3.0",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+                },
+                "taxonomy": {
+                    "class": "Magnoliopsida",
+                    "family": "Araceae",
+                    "genus": "Spathiphyllum",
+                    "kingdom": "Plantae",
+                    "order": "Alismatales",
+                    "phylum": "Magnoliophyta"
+                },
+                "synonyms": [],
+                "language": "en",
+                "scientific_name": "Spathiphyllum wallisii",
+                "structured_name": {
+                    "genus": "spathiphyllum",
+                    "species": "wallisii"
+                }
+            },
+            "probability": 0.44252603605824103,
+            "confirmed": false,
+            "similar_images": [
+                {
+                    "id": "94fc4a70583af4f4e76db6a550603795",
+                    "similarity": 0.32893718597332877,
+                    "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/94f/c4a70583af4f4e76db6a550603795.jpg",
+                    "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/94f/c4a70583af4f4e76db6a550603795.small.jpg"
+                },
+                {
+                    "id": "d5f56cd84fb48e0735dd471b9cee3dfc",
+                    "similarity": 0.3095901065522541,
+                    "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/d5f/56cd84fb48e0735dd471b9cee3dfc.jpg",
+                    "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/d5f/56cd84fb48e0735dd471b9cee3dfc.small.jpg"
+                }
+            ]
+        },
+        {
+            "id": 384560340,
+            "plant_name": "Zantedeschia aethiopica",
+            "plant_details": {
+                "common_names": [
+                    "Arum lily",
+                    "calla lily"
+                ],
+                "url": "https://en.wikipedia.org/wiki/Zantedeschia_aethiopica",
+                "name_authority": "Zantedeschia aethiopica (L.) Spreng.",
+                "wiki_description": {
+                    "value": "Zantedeschia aethiopica, commonly known as calla lily and arum lily, is a species in the family Araceae, native to southern Africa in Lesotho, South Africa, and Swaziland.",
+                    "citation": "https://en.wikipedia.org/wiki/Zantedeschia_aethiopica",
+                    "license_name": "CC BY-SA 3.0",
+                    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+                },
+                "taxonomy": {
+                    "class": "Magnoliopsida",
+                    "family": "Araceae",
+                    "genus": "Zantedeschia",
+                    "kingdom": "Plantae",
+                    "order": "Alismatales",
+                    "phylum": "Magnoliophyta"
+                },
+                "synonyms": [
+                    "Arodes aethiopicum",
+                    "Calla aethiopica",
+                    "Calla ambigua",
+                    "Calla moschata",
+                    "Colocasia aethiopica",
+                    "Pseudohomalomena pastoensis",
+                    "Richardia aethiopica",
+                    "Richardia africana"
+                ],
+                "language": "en",
+                "scientific_name": "Zantedeschia aethiopica",
+                "structured_name": {
+                    "genus": "zantedeschia",
+                    "species": "aethiopica"
+                }
+            },
+            "probability": 0.02487328591212883,
+            "confirmed": false,
+            "similar_images": [
+                {
+                    "id": "f0c04d25b6542f455d52b6e45a1db291",
+                    "similarity": 0.23695774337031306,
+                    "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/f0c/04d25b6542f455d52b6e45a1db291.jpg",
+                    "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/f0c/04d25b6542f455d52b6e45a1db291.small.jpg"
+                },
+                {
+                    "id": "9fda3217a9b56947933102a102d0da3f",
+                    "similarity": 0.19925282508924524,
+                    "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/9fd/a3217a9b56947933102a102d0da3f.jpg",
+                    "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/images/9fd/a3217a9b56947933102a102d0da3f.small.jpg"
+                }
+            ]
+        }
+    ]
+}

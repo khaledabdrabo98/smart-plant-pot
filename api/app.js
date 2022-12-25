@@ -2,7 +2,9 @@ const express = require('express');
 const path = require('path');
 var multer = require('multer');
 const https = require('https');
+const fetch = require('node-fetch')
 var fs = require('fs');
+const multiparty = require('multiparty');
 
 const app = express();
 
@@ -83,7 +85,7 @@ app.post("/plant/photo", upload.single("image"), (req, res) => {
     var message = "";
     req = https.request(options, response => {
       response.on('data', d => {
-          // process.stdout.write(d);
+          // console.log(d);
           message += d; 
       }).on('end', () => {
           res.json({ message: JSON.parse(message).suggestions });  
@@ -102,7 +104,73 @@ app.post("/plant/photo", upload.single("image"), (req, res) => {
   }
 });
 
-app.post("/plant/id", (req, res, next) => {
+async function generateAccessToken() {
+  const client_id = 'snJvXG0PLhLxuwyvm6R4njBkQYzRPfgBKIyC3o5k';
+  const client_secret = 'tVxOzcWO7tD3KsQ2EmK1oYLKS0Z3Z6a41oaTkg9OxmGtTLFelu0nx1FD677BTSfH4iBv2AI24zEDKt7klGTTa6q4xBopzk2ReYA6nVL2J8tiflnADzXRMfwnE8N3uXzQ';
+  const response = await fetch('https://open.plantbook.io/api/v1/token/', {
+    method: 'POST',
+    body: "grant_type=client_credentials",
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: "Basic " + Buffer.from(client_id + ":" + client_secret).toString("base64"),
+    },
+  });
+  const data = await response.json();
+  return data;
+}
+
+// Route to get plant name in PlantBook API (from suggestions or user)
+// API used to get plant name : https://open.plantbook.io/
+app.get("/plant/id", async (req, res, next) => {
+  //const token = await generateAccessToken();
+  //console.log(token)
+  const token = '2b429b6b5f3ee2b94db387b9ba9487a374b932c1';
+
+  let form = new multiparty.Form();
+  form.parse(req, function(_err, fields, files) {
+    alias = fields['alias'][0];
+
+    const options = {
+      hostname: 'open.plantbook.io',
+      path: '/api/v1/plant/search?limit=10&alias=' + alias,
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Token ' + token
+      }
+    }
+  
+    var message = "";
+    req = https.request(options, response => {
+      response.on('data', d => {
+          process.stdout.write(d);
+          message += d; 
+      }).on('end', () => {
+          res.json({ message: JSON.parse(message) });  
+      });
+    });
+  
+    req.on('error', error => {
+      console.error('Error: ', error)
+    });
+  
+    req.end()
+  });
+});
+
+// Route to get plant needs from PlantBook API using searched name
+// API used to get plant data : https://open.plantbook.io/
+app.get("/plant/stats", (req, res, next) => {
+  // Next TODO
+});
+
+// Route to save current plant data 
+app.post("/plant/save", (req, res, next) => {
+  // Next TODO
+});
+
+// Route to get (fetch) current plant data 
+app.get("/plant/myplant", (req, res, next) => {
   // Next TODO
 });
 
