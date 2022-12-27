@@ -103,6 +103,27 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get saved plant details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/plant/myplant/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"plant",
+						"myplant",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

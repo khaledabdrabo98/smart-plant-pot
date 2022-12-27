@@ -41,7 +41,7 @@ Les noms scientifiques des plantes seront récupérées sur une API, et leurs in
 - 1 potentiomètre
 
 ## Membres : 
-- Thibault Hervier p1807341
+- Thibault HERVIER p1807341
 - Jean BRIGNONE p1709655 
 - Khaled ABDRABO p1713323
 

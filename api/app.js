@@ -159,6 +159,7 @@ app.get("/plant/id", async (req, res, next) => {
 });
 
 // Route to get plant needs from PlantBook API using searched name
+// Then save plant details in ./myplant.json
 // API used to get plant data : https://open.plantbook.io/
 app.get("/plant/stats", (req, res, next) => {
   //const token = await generateAccessToken();
@@ -168,9 +169,7 @@ app.get("/plant/stats", (req, res, next) => {
   let form = new multiparty.Form();
   form.parse(req, function(_err, fields, files) {
     plant_pid = fields['plant_pid'][0];
-
     plant_pid = plant_pid.replace(/\s/g, '%20')
-    console.log(plant_pid);
 
     const options = {
       hostname: 'open.plantbook.io',
@@ -188,7 +187,22 @@ app.get("/plant/stats", (req, res, next) => {
           process.stdout.write(d);
           message += d; 
       }).on('end', () => {
-          res.json({ message: JSON.parse(message) });  
+          // Parse JSON
+          var jsonObj = JSON.parse(message);
+          
+          // Stringify JSON Object
+          var jsonContent = JSON.stringify(jsonObj);
+          
+          // Write in myplant.json file
+          fs.writeFile("myplant.json", jsonContent, 'utf8', function (err) {
+              if (err) {
+                  console.log("An error occured while writing JSON object to file.");
+                  return console.log(err);
+              }
+          
+              console.log("Plant details saved.");
+              res.json({ message: jsonObj }); 
+          }); 
       });
     });
   
@@ -200,14 +214,19 @@ app.get("/plant/stats", (req, res, next) => {
   });
 });
 
-// Route to save current plant data 
-app.post("/plant/save", (req, res, next) => {
-  // Next TODO
-});
-
 // Route to get (fetch) current plant data 
+// Plant details can be found in ./myplant.json
 app.get("/plant/myplant", (req, res, next) => {
-  // Next TODO
+  let rawdata = fs.readFileSync('./myplant.json');
+  if (Object.keys(rawdata).length === 0 && rawdata.constructor === Object) {
+    let err = "An error occured while reading JSON object from file.";
+    console.log(err);
+    res.json({ message: err})
+  } else {
+    let plant = JSON.parse(rawdata);
+    res.json({ message: plant }); 
+    console.log(plant);
+  }
 });
 
 app.use((req, res) => {
