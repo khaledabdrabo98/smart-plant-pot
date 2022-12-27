@@ -14,7 +14,7 @@ app.use(express.urlencoded());
 
 //Setting storage engine
 const storageEngine = multer.diskStorage({
-  destination: "./api/images",
+  destination: "./images",
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}--${file.originalname}`);
   },
@@ -161,7 +161,43 @@ app.get("/plant/id", async (req, res, next) => {
 // Route to get plant needs from PlantBook API using searched name
 // API used to get plant data : https://open.plantbook.io/
 app.get("/plant/stats", (req, res, next) => {
-  // Next TODO
+  //const token = await generateAccessToken();
+  //console.log(token)
+  const token = '2b429b6b5f3ee2b94db387b9ba9487a374b932c1';
+
+  let form = new multiparty.Form();
+  form.parse(req, function(_err, fields, files) {
+    plant_pid = fields['plant_pid'][0];
+
+    plant_pid = plant_pid.replace(/\s/g, '%20')
+    console.log(plant_pid);
+
+    const options = {
+      hostname: 'open.plantbook.io',
+      path: '/api/v1/plant/detail/' + plant_pid + '/',
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Token ' + token
+      }
+    }
+  
+    var message = "";
+    req = https.request(options, response => {
+      response.on('data', d => {
+          process.stdout.write(d);
+          message += d; 
+      }).on('end', () => {
+          res.json({ message: JSON.parse(message) });  
+      });
+    });
+  
+    req.on('error', error => {
+      console.error('Error: ', error)
+    });
+  
+    req.end()
+  });
 });
 
 // Route to save current plant data 
