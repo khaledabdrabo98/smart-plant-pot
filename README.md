@@ -4,7 +4,7 @@
 
 ---
 
-## Description du projet
+## Description du projet waterTouch
 
 Le but de ce projet est d'utiliser un hygromètre pour mesurer le taux d'humidité d'un pot de fleur et informer l'utilisateur du besoin en eau de la plante. On a aussi la possibilité de sauvegarder cette valeur sur un serveur pour un potentiel suivi.
 
