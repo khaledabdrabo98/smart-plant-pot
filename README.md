@@ -15,7 +15,7 @@ Les informations sont données par un système de LED:
 > <span style="color:red">**O**</span>: la plante meurt de soif.
 > <span style="color:lime">**O**</span><span style="color:red">**O**</span>: la plante se noie.
 >
-> <span style="color:lime">**O**</span> > <span style="color:gold">**O**</span> > <span style="color:red">**O **</span>: la taux d'humidité actuel est sauvegardé sur le serveur.
+> <span style="color:lime">**O**</span> > <span style="color:gold">**O**</span> > <span style="color:red">**O**</span>: le taux d'humidité actuel est sauvegardé sur le serveur.
 
 Les besoins en eau de la plante sont récupérés via la connexion à l'API *"OpenPlantBook"* après identification de la plante par photo via l'API *"PlantID"* puis envoyé à l'Arduino.
 
