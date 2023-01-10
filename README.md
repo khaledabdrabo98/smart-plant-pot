@@ -17,7 +17,9 @@ Les informations sont données par un système de LED:
 >
 > <span style="color:lime">**O**</span> > <span style="color:gold">**O**</span> > <span style="color:red">**O **</span>: la taux d'humidité actuel est sauvegardé sur le serveur.
 
-Les besoins en eau de la plante sont récupérés via la connexion à l'API *"OpenPlantBook"* après identification de la plante par photo via l'API *"PlantID"*.
+Les besoins en eau de la plante sont récupérés via la connexion à l'API *"OpenPlantBook"* après identification de la plante par photo via l'API *"PlantID"* puis envoyé à l'Arduino.
+
+La communication Arduino-WEB est effectuée par l'intermédiaire d'un script Python (bibliothèque PySerial)
 
 
 
@@ -25,11 +27,16 @@ Les besoins en eau de la plante sont récupérés via la connexion à l'API *"Op
 
 ## Possibles extensions (après implémentation de l'hygromètre)
 
-- **[<span style="color:lime">FAIT</span>] Ajout d'un capteur capacitif; Transforme la plante en actionneur.**
+- **[<span style="color:lime">FAIT</span>] Ajout d'un capteur capacitif : Transforme la plante en actionneur.**
 
   > - Toucher la plante allume/éteint l'affichage LED.
   > - Pincer la plante sauvegarde le taux d'humidité actuel sur le serveur.
 
+- **Implémentation d'un shield Arduino Wifi : Suppression de l'interfaçage Arduino-WEB via Python**
+
+  > - Les communications se font directement depuis l'Arduino via des GET/POST
+  > - *"Cette méthode n'a pas été initialement choisie du fait de son coût (~30€) mais aussi car le temps de commande du composant et de son implémentation ne collait pas à notre deadline…"*
+  
 - **Modification du système LED**
 
   - Ajout d'un écran en lieu et place du système LED.
