@@ -52,10 +52,10 @@ void loop()
 void check_touch()  // check if the plant is interacted with
 {
   int touchState = 1; // touch
-  if (touchValue<400){
+  if (touchValue<200){
     touchState = 2; // nothing
   }
-  if (touchValue>1000){
+  if (touchValue>400){
     touchState = 0; // pinch
   }
   react(touchState);

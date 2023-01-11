@@ -72,7 +72,8 @@ if len(ports) != 0:  # s'il y a des ports actifs on les affiche
                 for moistureState in range(4):  # 0:contente - 1:assoiffée - 2:déséchée - 3:noyée
                     if str(moistureState) == dataReceived:
                         print('>> moistureState received')
-                        print(">> sending ", moistureState, " to API")  # on envoie la donnée au serveur
+                        print(">> sending ", moistureState, " to API")
+                        api_post(moistureState)  # on envoie la donnée au serveur
 
 else:  # s'il n'y a pas de port actif
     print(">> FAILURE : No active port detected")
