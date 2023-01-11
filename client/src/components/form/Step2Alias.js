@@ -15,7 +15,7 @@ const Step2 = props => {
       <div>
         {/* Loop on possible alias using data received from api */}
         {props.plant_pids.map(pid => {
-          return <label>
+          return <label key={pid.pid}>
             <input type="radio" key={pid.pid} name="plant_pid" id="plant_pid" onChange={props.handleChange} 
                   value={pid.pid} checked={props.plant_pid === pid.pid} />
             <img src={"https://opb-img.plantbook.io/" + encodeURI(pid.pid).trim() + ".jpg"} alt={pid.display_pid} />

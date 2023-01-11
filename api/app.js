@@ -55,6 +55,7 @@ app.use(function(req, res, next) {
 app.post("/plant/photo", upload.single("image"), (req, res) => {
   //req.file = bodyParser.json(req.file)
   console.log(req.file)
+  console.log(req.body)
   if (req.file) {
     const files = [ req.file.path ]; 
     const base64files = files.map(file => fs.readFileSync(file, 'base64'));
@@ -217,7 +218,7 @@ app.get("/plant/myplant", (req, res, next) => {
   } else {
     let plant = JSON.parse(rawdata);
     res.json({ message: plant }); 
-    console.log(plant);
+    // console.log(plant);
   }
 });
 

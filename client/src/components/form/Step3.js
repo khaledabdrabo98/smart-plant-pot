@@ -25,7 +25,7 @@ const Step3 = props => {
       <p><b>Useful information about your plant:</b></p>
       <p>{prettyJSON("Plant category: " + props.details.category)} </p>
       <p>{prettyJSON("Humidity range: [ " + props.details.min_env_humid +" %, " + props.details.max_env_humid + " % ]")} </p>
-      <p>{prettyJSON("Soil moist range: [ " + props.details.min_soil_moist +" bars, " + props.details.max_soil_moist + " bars ]")} </p>
+      <p>{prettyJSON("Soil moist range: [ " + props.details.min_soil_moist +" %, " + props.details.max_soil_moist + " % ]")} </p>
       <p>{prettyJSON("Room temperature range: [ " + props.details.min_temp +" ℃, " + props.details.max_temp + " ℃ ]")} </p>
       <p>{prettyJSON("Light intensity range: [ " + props.details.min_light_mmol +" mmol, " + props.details.max_light_mmol + " mmol ]")} </p>
     </>
