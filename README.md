@@ -106,9 +106,10 @@ Les noms scientifiques des plantes sont récupérés sur une API, et leurs infor
 
 - [Arduino](https://forge.univ-lyon1.fr/p1713323/iot/-/blob/main/waterTouch.ino)
 
-- [WEB/API](https://forge.univ-lyon1.fr/p1713323/iot/-/tree/main/api)
+- [Backend/API](https://forge.univ-lyon1.fr/p1713323/iot/-/tree/main/api)
 
-  
+- [Frontend/React.JS WEB-APP](https://forge.univ-lyon1.fr/p1713323/iot/-/tree/main/client)
+
 
 ---
 
