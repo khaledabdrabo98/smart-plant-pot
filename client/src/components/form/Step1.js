@@ -1,9 +1,13 @@
 import React from "react";
 import { Input, FormGroup, Button } from "reactstrap";
-import { Form } from 'react-bootstrap';
-import FileUploader from "../utils/FileUploader";
 
 function Step1 (props) {
+    const hiddenFileInput = React.useRef(null);
+  
+    const handleClick = event => {
+        hiddenFileInput.current.click();
+    };
+    
     if (props.currentStep !== 1) {
         return <></>;
     } else {
@@ -11,16 +15,26 @@ function Step1 (props) {
             <>
                 <div>
                     <h4><b>Step 1 : Identify your plant</b></h4>
-                    <p>By uploading an image (.png, .jpg, .jpeg)</p>
+                    <p>By uploading its image (.png, .jpg, .jpeg)</p>
                     <form encType="multipart/form-data">
                         {/* <Form.Group>
                             <Form.Label>Upload image</Form.Label>
                             <Form.File name="image" type="file" accept="image/*" />
                         </Form.Group> */}
                         {/* <Form.File name="image"  accept="image/*" onChange={e => setImage(e.target.files[0])} />  */}
-                        <Form.Group>
+                        {/* <Form.Group>
                             <FileUploader handleFile={props.handleImageChange}/>
-                        </Form.Group> 
+                        </Form.Group>  */}
+                        <Button color="success" onClick={event => handleClick(event)}>
+                            Upload an image
+                        </Button>
+                        <input type="file"
+                                id="image"
+                                name="image"
+                                accept="image/*" 
+                                ref={hiddenFileInput}
+                                onChange={event => props.handleFile(event)}
+                                style={{display:'none'}} />
                     </form>
                 </div>
                 <hr />

@@ -16,7 +16,7 @@ import MultiStepProgressBar from "./MultiStepProgressBar";
 
 async function upload_image_plant(image) {
   // console.log("in upload image");
-  // console.log(image)
+  console.log(image)
 
   const thingData = new FormData();
   thingData.append('image', JSON.stringify(image));
@@ -108,6 +108,8 @@ function encode_status(moist_level) {
     return <label>Parched 😵</label>
   else if (moist_level === 3)
     return <label>Drowning 😭</label>
+  else 
+    return <label>Loading...</label>
 }
 
 class MainForm extends Component {
@@ -131,6 +133,7 @@ class MainForm extends Component {
 
     // Bind the submission to handlers 
     this.handleChange = this.handleChange.bind(this);
+    this.handleFile = this.handleFile.bind(this);
     this.handleAliasChange = this.handleAliasChange.bind(this);
     this.handleImageChange = this.handleImageChange.bind(this);
     this.handleDetailsFromPID = this.handleDetailsFromPID.bind(this);
@@ -146,7 +149,7 @@ class MainForm extends Component {
 
     this.timerID = setInterval(
       () => this.tick(),
-      1000
+      5000
     );
   }
 
@@ -168,6 +171,20 @@ class MainForm extends Component {
     // console.log("received: "+name+": "+value);
   }
 
+  handleFile(event) {
+    if (event.target !== undefined) {
+      this.setState({
+        image: event.target.files[0],
+        step2_alias: false
+      });
+      console.log(this.state.image);
+      console.log(event.target.files[0]);
+      this.handleImageChange(event.target.files[0]);
+    } else {
+      alert("Please retry uploading your image.");
+    }
+  }
+
   handleAliasChange = async () => {
     if (this.state.alias === undefined) {
       return
@@ -186,8 +203,8 @@ class MainForm extends Component {
     } 
   }
 
-  handleImageChange = async () => {
-    const predictions = await upload_image_plant(this.state.image);
+  handleImageChange = async (image) => {
+    const predictions = await upload_image_plant(image);
     this.setState({
       plant_predictions: predictions,
       step2_alias: false
@@ -287,6 +304,7 @@ class MainForm extends Component {
             <Step1
               currentStep={this.state.currentStep}
               handleChange={this.handleChange}
+              handleFile={this.handleFile}
               handleImageChange={this.handleImageChange}
               handleAliasChange={this.handleAliasChange}
               alias={this.state.alias}
@@ -312,9 +330,7 @@ class MainForm extends Component {
             }
             <Step3
               currentStep={this.state.currentStep}
-              handleChange={this.handleChange}
               details={this.state.details}
-              // email={this.state.password}
             />
           </CardBody>
         </Card>

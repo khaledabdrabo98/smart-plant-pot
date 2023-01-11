@@ -7,11 +7,7 @@ const FileUploader = props => {
   const handleClick = event => {
     hiddenFileInput.current.click();
   };
-  const handleChange = event => {
-    const fileUploaded = event.target.files[0];
-    props.handleFile(fileUploaded);
-  };
-
+  
   return (
     <>
       <Button color="success" onClick={handleClick}>
@@ -22,7 +18,7 @@ const FileUploader = props => {
              name="image"
              accept="image/*" 
              ref={hiddenFileInput}
-             onChange={handleChange}
+             onChange={event => props.handleFile(event)}
              style={{display:'none'}} 
       /> 
     </>
