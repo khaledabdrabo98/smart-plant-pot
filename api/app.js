@@ -6,7 +6,7 @@ const fetch = require('node-fetch')
 var fs = require('fs');
 const multiparty = require('multiparty');
 var bodyParser = require('body-parser')
-
+var qs = require('querystring');
 const app = express();
 
 app.use(express.json());
@@ -126,10 +126,8 @@ async function generateAccessToken() {
 // API used to get plant name : https://open.plantbook.io/
 app.get("/plant/id", async (req, res, next) => {
   //const token = await generateAccessToken();
-  //console.log(token)
   const token = '2b429b6b5f3ee2b94db387b9ba9487a374b932c1';
   const alias = JSON.parse(req.query.alias).replace(/ /g, '%20');
-  // console.log(alias)
 
   const options = {
     hostname: 'open.plantbook.io',
@@ -165,10 +163,7 @@ app.get("/plant/stats", (req, res, next) => {
   //const token = await generateAccessToken();
   //console.log(token)
   const token = '2b429b6b5f3ee2b94db387b9ba9487a374b932c1';
-  console.log(req.query.plant_pid);
-  console.log(JSON.parse(req.query.plant_pid));
   const plant_pid = JSON.parse(req.query.plant_pid).replace(/ /g, '%20');
-  console.log(plant_pid)
 
   const options = {
     hostname: 'open.plantbook.io',
@@ -179,15 +174,12 @@ app.get("/plant/stats", (req, res, next) => {
         'Authorization': 'Token ' + token
     }
   }
-  console.log(options.path)
   var message = "";
   req = https.request(options, response => {
     response.on('data', d => {
-        process.stdout.write(d);
+        // process.stdout.write(d);
         message += d; 
     }).on('end', () => {
-        console.log(message)
-        console.log(JSON.parse(message))
         // Parse JSON
         var jsonObj = JSON.parse(message);
         
@@ -227,6 +219,43 @@ app.get("/plant/myplant", (req, res, next) => {
     res.json({ message: plant }); 
     console.log(plant);
   }
+});
+
+app.get("/plant/moist_level", (req, res, next) => {
+  let rawdata = fs.readFileSync('./myplant_status.json');
+  if (Object.keys(rawdata).length === 0 && rawdata.constructor === Object) {
+    let err = "An error occured while reading JSON object from file.";
+    console.log(err);
+    res.status(404).json({ message: err})
+  } else {
+    let plant_status = JSON.parse(rawdata);
+    res.json({ message: plant_status }); 
+  }
+});
+
+app.post("/plant/update", (req, res, next) => {
+  
+  req.on('end', function () {
+    var body = qs.parse(req.body);
+    const moist_level = body.moistureState;
+
+    var moist_json = { "current_moist_level": moist_level };
+          
+    // Stringify JSON Object
+    var jsonContent = JSON.stringify(moist_json);
+    
+    // Write in myplant.json file
+    fs.writeFile("myplant_status.json", jsonContent, 'utf8', function (err) {
+        if (err) {
+            console.log("An error occured while writing JSON object to file.");
+            return console.log(err);
+        }
+    
+        console.log("Plant details saved.");
+        res.json({ message: moist_json }); 
+    });
+    req.end(); 
+  });
 });
 
 app.use((req, res) => {

@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, memo } from "react";
 import {
-  Form,
   Button,
   Card,
   CardHeader,
   CardBody,
   CardTitle,
-  CardText,
-  CardFooter
+  CardText
 } from "reactstrap";
 
 import Step1 from "./Step1";
@@ -17,8 +15,8 @@ import Step3 from "./Step3";
 import MultiStepProgressBar from "./MultiStepProgressBar";
 
 async function upload_image_plant(image) {
-  console.log("in upload image");
-  console.log(image)
+  // console.log("in upload image");
+  // console.log(image)
 
   const thingData = new FormData();
   thingData.append('image', JSON.stringify(image));
@@ -35,12 +33,12 @@ async function upload_image_plant(image) {
           body: thingData
       })
   .then(data => data.json())
-  .then(data => {console.log(data.message)})
+  .then(data => {return data.message})
 }
 
 async function get_plant_alias(name) {
-  console.log("in search by name");
-  console.log(name)
+  // console.log("in search by name");
+  // console.log(name)
 
   return fetch("http://localhost:3000/plant/id?alias=" + JSON.stringify(name.trim()), {
           method: 'GET',
@@ -52,9 +50,9 @@ async function get_plant_alias(name) {
 }
 
 async function get_details_from_pid(pid) {
-  console.log("in get details");
-  console.log(pid);
-  console.log(JSON.stringify(pid).trim().replace(/\s/g, '%20'));
+  // console.log("in get details");
+  // console.log(pid);
+  // console.log(JSON.stringify(pid).trim().replace(/\s/g, '%20'));
 
   return fetch("http://localhost:3000/plant/stats?plant_pid=" + JSON.stringify(pid.trim()), {
           method: 'GET',
@@ -63,6 +61,53 @@ async function get_details_from_pid(pid) {
       })  
   .then(data => data.json())
   .then(data => {return data.message})
+}
+
+async function get_saved_plant() {
+  return fetch("http://localhost:3000/plant/myplant", {
+          method: 'GET',
+          mode: 'cors',
+          cache: 'default'
+      })  
+  .then(data => data.json())
+  .then(data => {return data.message})
+}
+
+async function get_saved_moist_level() {
+  return fetch("http://localhost:3000/plant/moist_level", {
+          method: 'GET',
+          mode: 'cors',
+          cache: 'default'
+      })  
+  .then(data => data.json())
+  .then(data => {return data.message.current_moist_level})
+}
+
+function MultiStepForm() {
+  const handleLoadSavedPlant = async () => {
+    return await get_saved_plant();
+  }
+
+  const handleSavedMoistLevel = async () => {
+    return await get_saved_moist_level();
+  }
+
+  return (
+    <MainForm handleLoadSavedPlant={handleLoadSavedPlant}
+              handleSavedMoistLevel={handleSavedMoistLevel}
+    />
+  );
+}
+
+function encode_status(moist_level) {
+  if (moist_level === 0) 
+    return <label>Happy 😄</label>
+  else if (moist_level === 1)
+    return <label>Thirsty 😓</label>
+  else if (moist_level === 2)
+    return <label>Parched 😵</label>
+  else if (moist_level === 3)
+    return <label>Drowning 😭</label>
 }
 
 class MainForm extends Component {
@@ -79,6 +124,9 @@ class MainForm extends Component {
       plant_predictions: [],
       plant_pid: undefined,
       details: [],
+      current_moist_level: undefined,
+      handleLoadSavedPlant: props.handleLoadSavedPlant,
+      handleSavedMoistLevel: props.handleSavedMoistLevel
     };
 
     // Bind the submission to handlers 
@@ -92,13 +140,32 @@ class MainForm extends Component {
     this._prev = this._prev.bind(this);
   }
 
+  componentDidMount() {
+    this.state.handleLoadSavedPlant()
+    .then(details => {this.setState({details: details})});
+
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.state.handleSavedMoistLevel()
+    .then(current_moist_level => {this.setState({current_moist_level: current_moist_level})});
+  }
+
   // Use the submitted data to set the state
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-    console.log("received: "+name+": "+value);
+    // console.log("received: "+name+": "+value);
   }
 
   handleAliasChange = async () => {
@@ -112,15 +179,11 @@ class MainForm extends Component {
         plant_pid: pids[pids.length -1].pid,
         step2_alias: true
       });
-      console.log(pids);
+      // console.log(pids);
       this._next();
     } else {
       alert("No results found :(");
     } 
-    // else 
-    //   // trigger user feedback (error!)
-    //   // this._prev();
-    //   return
   }
 
   handleImageChange = async () => {
@@ -134,12 +197,12 @@ class MainForm extends Component {
   }
 
   handleDetailsFromPID = async () => {
-    console.log(this.state.plant_pid)
+    // console.log(this.state.plant_pid)
     const details = await get_details_from_pid(this.state.plant_pid)
     this.setState({
       details: details
     });
-    console.log(details);
+    // console.log(details);
     this._next();
   }
 
@@ -209,62 +272,55 @@ class MainForm extends Component {
   render() {
     return (
       <>
-        <Form>
-          <Card>
-            <CardHeader>Welcome to <b>My Smart Plant</b> 🪴 </CardHeader>
-            {this.state.details.display_pid ? 
-              <CardHeader>Your current plant: <b>{this.state.details.display_pid}</b> 🍃 </CardHeader>
-            :
-              <CardHeader>Your current plant: <b>???</b></CardHeader>
-            }
-            <CardBody>
-              <CardTitle>
-                <MultiStepProgressBar currentStep={this.state.currentStep} />
-              </CardTitle>
-              <CardText />
-              <Step1
+        <Card>
+          <CardHeader>🍃 Welcome to <b>My Smart Plant</b> 🪴 </CardHeader>
+          {this.state.details.display_pid ? 
+            <CardHeader>Your current plant: <b>{this.state.details.display_pid}</b> (status: <b>{encode_status(this.state.current_moist_level)}</b>)</CardHeader>
+          :
+            <CardHeader>Your current plant: <b>???</b></CardHeader>
+          }
+          <CardBody>
+            <CardTitle>
+              <MultiStepProgressBar currentStep={this.state.currentStep} />
+            </CardTitle>
+            <CardText />
+            <Step1
+              currentStep={this.state.currentStep}
+              handleChange={this.handleChange}
+              handleImageChange={this.handleImageChange}
+              handleAliasChange={this.handleAliasChange}
+              alias={this.state.alias}
+              image={this.state.image}
+              next={this._next}
+            />
+            {this.state.step2_alias ? 
+              <Step2Alias
                 currentStep={this.state.currentStep}
                 handleChange={this.handleChange}
-                handleImageChange={this.handleImageChange}
-                handleAliasChange={this.handleAliasChange}
-                alias={this.state.alias}
-                image={this.state.image}
+                handleDetailsFromPID={this.handleDetailsFromPID}
+                plant_pids={this.state.plant_pids}
+                plant_pid={this.state.plant_pid}
                 next={this._next}
               />
-              {this.state.step2_alias ? 
-                <Step2Alias
-                  currentStep={this.state.currentStep}
-                  handleChange={this.handleChange}
-                  handleDetailsFromPID={this.handleDetailsFromPID}
-                  plant_pids={this.state.plant_pids}
-                  plant_pid={this.state.plant_pid}
-                  next={this._next}
-                />
-              : 
-                <Step2Image
-                  currentStep={this.state.currentStep}
-                  handleChange={this.handleChange}  
-                  plant_pid={this.state.plant_pid}
-                  next={this._next}
-                /> 
-              }
-              <Step3
+            : 
+              <Step2Image
                 currentStep={this.state.currentStep}
-                handleChange={this.handleChange}
-                details={this.state.details}
-                // email={this.state.password}
-              />
-            </CardBody>
-            {/* <CardFooter>
-              {this.previousButton}
-              {this.nextButton}
-              {this.submitButton}
-            </CardFooter> */}
-          </Card>
-        </Form>
+                handleChange={this.handleChange}  
+                plant_pid={this.state.plant_pid}
+                next={this._next}
+              /> 
+            }
+            <Step3
+              currentStep={this.state.currentStep}
+              handleChange={this.handleChange}
+              details={this.state.details}
+              // email={this.state.password}
+            />
+          </CardBody>
+        </Card>
       </>
     );
   }
 }
 
-export default MainForm;
+export default memo(MultiStepForm);
